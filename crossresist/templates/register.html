@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <form class="form-register" action="" method="post" name="resgister">
+        {{ form.hidden_tag() }}
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <h3 class="form-signin-heading">Please enter details below to register yourself</h3><br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-3">
+                {{ form.username(class="form-control", placeholder="Username") }}
+            </div>
+            <div class="col-sm-3 help-block">
+                {% for error in form.username.errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-3">
+                {{ form.email(class="form-control", placeholder="me@mail.com") }}
+            </div>
+            <div class="col-sm-3 help-block">
+                {% for error in form.email.errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-3">
+                {{ form.password(class="form-control", placeholder="Password") }}
+            </div>
+            <div class="col-sm-3 help-block">
+                {% for error in form.password.errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-3">
+                {{ form.repassword(class="form-control", placeholder="Retype Password") }}
+            </div>
+            <div class="col-sm-3 help-block">
+                {% for error in form.repassword.errors %}
+                    {{ error }}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-3">
+                <button class="btn btn-primary btn-block" type="submit">Register</button>
+            </div>
+        </div>
+
+    </form>
+
+{% endblock %}
+
