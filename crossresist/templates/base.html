@@ -2,43 +2,74 @@
 <html lang="en">
     <head>
         {% block head %}
-            {% if title %}
-                <title>{{ title }} - CrossResist</title>
-            {% else %}
-                <title>CrossResist</title>
-            {% endif %}
-
-            <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.jss"></script>
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CrossResist{% block title %}{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Cross resistance awareness in India">
+        <meta name="keywords" content="Antibiotic cross resistance">
+        <meta name="author" content="Parashar Dhapola">
+        <meta charset="utf-8">
+        <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.jss"></script>    
+        <link href='/static/styles.css' rel='stylesheet' type='text/css'>
         {% endblock %}
     </head>
-
     <body>
+        {% block navbar %}
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <nav class="navbar navbar-inverse">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                          <a class="navbar-brand" href="#">CrossResist</a>
+                        </div>
 
-        <div class="navbar navbar-static-top navbar-default">
-            <div class="container">
-                <a class="navbar-brand" href="#">CrossResist</a>
-                {% block navbar %}
-                {% endblock %}
+                        <div class="collapse navbar-collapse">
+                           <ul class = "nav navbar-nav pull-right">
+                               <li><a href = "/"> Home</a></li>
+                               <li><a href = "selfmanagement.html">Self Management</a></li>
+                               <li><a href = "database.html">Database</a></li>
+                               <li><a href = "support.html">Support Research</a></li>
+                               <li><a href = "grade.html">Grade Yourself</a></li>
+                               <li><a href = "call.html">Asthma on Call</a></li>
+                               <li><a href = "feedback.html">Feedback</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
             </div>
         </div>
-
+        {% endblock %}
         <div class="container page">
             <div class="content">
-                {% block content %}
-                {% endblock %}
+
+                    {% block content %}
+                    {% endblock %}
+
             </div>
-            <hr>
+        </div>
+        <hr>
+        {% block footer %}
+            <footer class="footer">
+                <div align="center">
+                    <h4 style="font-family: 'Ubuntu', sans-serif; font-size: 80%";>
+                        For Feedback and Issues contact - <a href="mailto:dhurjhotisaha.02@gmail.com" target="_top">Admin</a>
+                    </h4>
+                </div>
+            </footer>
+        {% endblock %}
 
-            {% block footer %}
-                <footer class="footer">
-                    <div align="center">
-                    </div>
-                </footer>
-            {% endblock %}
-		</div>
-
+        {% block js_footer %}
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+            <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+        {% endblock %}
     </body>
 </html>
